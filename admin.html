@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PreClean, un proyecto en desarrollo y un blog para cuidar uniformes escolares y laborales.">
+    <title>Panel de edición | PreClean</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="content.js" defer></script>
+    <script src="site.js" defer></script>
+</head>
+<body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <header>
+        <div class="wrap nav">
+            <a href="index.html" aria-label="PreClean, inicio"><img class="logo" src="assets/brand.png" alt="PreClean" width="132" height="48"></a>
+            <nav aria-label="Principal (enlaces en pestañas nuevas)">
+                <a href="proyecto.html" target="_blank" rel="noopener">El proyecto</a>
+                <a href="uso.html" target="_blank" rel="noopener">Modo de uso</a>
+                <a href="tips.html" target="_blank" rel="noopener">Consejos</a>
+                <a href="videos.html" target="_blank" rel="noopener">Videos</a>
+                <a href="preguntas.html" target="_blank" rel="noopener">Preguntas</a>
+                <a href="testimonios.html" target="_blank" rel="noopener">Testimonios</a>
+            </nav>
+            <a class="button small" href="contacto.html" target="_blank" rel="noopener">Contacto <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+    <main id="contenido">
+        <section class="wrap section">
+    <p class="eyebrow">PREVISUALIZACIÓN LOCAL</p>
+    <h2>Panel de edición</h2>
+    <p class="notice">Los cambios se guardan en este navegador. Usa datos de prueba hasta que el equipo conecte las cuentas y la base de datos.</p>
+    <div class="grid two">
+        <form id="project-form" class="card editor-form">
+            <h3>Editar El proyecto</h3>
+            <label>Título <input name="title" required maxlength="100"></label>
+            <label>Descripción <textarea name="body" required maxlength="1500" rows="5"></textarea></label>
+            <button class="button">Guardar contenido</button>
+        </form>
+        <form id="testimonial-form" class="card editor-form">
+            <h3 id="testimonial-heading">Agregar testimonio</h3>
+            <label>Nombre público <input name="author" required maxlength="80"></label>
+            <label>Testimonio <textarea name="quote" required maxlength="800" rows="5"></textarea></label>
+            <label>Estado <select name="status"><option value="draft">Borrador</option><option value="published">Publicado en esta vista</option></select></label>
+            <div class="actions"><button class="button">Guardar testimonio</button><button class="button secondary" id="cancel-edit" type="button" hidden>Cancelar</button></div>
+        </form>
+    </div>
+    <p id="editor-status" role="status"></p>
+    <h3>Testimonios guardados</h3>
+    <div id="testimonial-editor-list" class="grid two"></div>
+</section>
+    </main>
+    <footer>
+        <div class="wrap footer">
+            <img class="logo" src="assets/brand.png" alt="PreClean" width="132" height="48">
+            <span>Proyecto estudiantil · Politécnico Grancolombiano</span>
+            <a href="admin.html" aria-current="page">Panel de edición</a>
+            <a href="index.html">Inicio ↑</a>
+        </div>
+    </footer>
+</body>
+</html>

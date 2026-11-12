@@ -2,7 +2,7 @@
 const whatsappUrl = "https://wa.me/573197517602";
 
 function connectWhatsApp() {
-  if (!whatsappUrl) return;
+  if (!whatsappUrl || !document.getElementById("contact-status")) return;
 
   const base = new URL(whatsappUrl);
   const allowedHosts = ["wa.me", "api.whatsapp.com", "www.whatsapp.com", "whatsapp.com"];
