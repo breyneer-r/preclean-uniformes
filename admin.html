@@ -6,7 +6,7 @@
     <meta name="description" content="PreClean, un proyecto en desarrollo y un blog para cuidar uniformes escolares y laborales.">
     <title>Panel de edición | PreClean</title>
     <link rel="stylesheet" href="style.css">
-    <script src="content.js" defer></script>
+    <script type="module" src="content.js"></script>
     <script src="site.js" defer></script>
 </head>
 <body>
@@ -27,27 +27,55 @@
     </header>
     <main id="contenido">
         <section class="wrap section">
-    <p class="eyebrow">PREVISUALIZACIÓN LOCAL</p>
+    <p class="eyebrow">PANEL ADMINISTRATIVO</p>
     <h2>Panel de edición</h2>
-    <p class="notice">Los cambios se guardan en este navegador. Usa datos de prueba hasta que el equipo conecte las cuentas y la base de datos.</p>
+    <section id="admin-login" class="card" aria-labelledby="login-title">
+        <h3 id="login-title">Iniciar sesión</h3>
+        <p>Acceso exclusivo para cuentas invitadas por el equipo.</p>
+        <form id="login-form" class="editor-form">
+            <label>Correo electrónico <input name="email" type="email" autocomplete="username" required></label>
+            <label>Contraseña <input name="password" type="password" autocomplete="current-password" required></label>
+            <button class="button">Ingresar</button>
+        </form>
+    </section>
+    <p id="auth-status" role="status"></p>
+    <div class="actions"><span id="auth-identity"></span><button class="button secondary" id="logout-button" type="button" hidden>Cerrar sesión</button></div>
+    <div id="admin-workspace" hidden>
+    <p class="notice">Los cambios del editor quedan pendientes hasta que una administradora los apruebe. Las publicaciones aprobadas se muestran a visitantes.</p>
     <div class="grid two">
         <form id="project-form" class="card editor-form">
             <h3>Editar El proyecto</h3>
             <label>Título <input name="title" required maxlength="100"></label>
             <label>Descripción <textarea name="body" required maxlength="1500" rows="5"></textarea></label>
-            <button class="button">Guardar contenido</button>
+            <div class="actions"><button class="button">Guardar borrador / publicar</button><button class="button secondary" id="submit-project" type="button" hidden>Enviar para aprobación</button></div>
         </form>
         <form id="testimonial-form" class="card editor-form">
             <h3 id="testimonial-heading">Agregar testimonio</h3>
             <label>Nombre público <input name="author" required maxlength="80"></label>
             <label>Testimonio <textarea name="quote" required maxlength="800" rows="5"></textarea></label>
-            <label>Estado <select name="status"><option value="draft">Borrador</option><option value="published">Publicado en esta vista</option></select></label>
+            <label>Estado <select name="status"><option value="draft">Borrador</option><option value="pending">Enviar para aprobación</option></select></label>
             <div class="actions"><button class="button">Guardar testimonio</button><button class="button secondary" id="cancel-edit" type="button" hidden>Cancelar</button></div>
         </form>
     </div>
     <p id="editor-status" role="status"></p>
     <h3>Testimonios guardados</h3>
     <div id="testimonial-editor-list" class="grid two"></div>
+    <h3>Revisión de cambios pendientes</h3>
+    <div id="review-queue" class="grid two"></div>
+    <h3>Imágenes y videos</h3>
+    <form id="media-form" class="card editor-form">
+        <label>Sección <select name="content_key"><option value="project">Proyecto</option><option value="videos">Videos</option></select></label>
+        <label>Archivo (imagen o video) <input name="file" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/webm" required></label>
+        <p>Máximo 10 MiB por imagen y 100 MiB por video. Los archivos quedan privados hasta su aprobación.</p>
+        <button class="button">Subir como borrador</button>
+    </form>
+    <p id="media-status" role="status"></p>
+    <div id="media-list" class="grid two"></div>
+    <section id="user-management" hidden>
+        <h3>Usuarios y roles</h3>
+        <div id="user-list" class="grid two"></div>
+    </section>
+    </div>
 </section>
     </main>
     <footer>
